@@ -2,3 +2,9 @@
 name = "bcount"
 version = "0.1.0"
 authors = ["Guillaume Fraux <guillaume.fraux@ens.fr>"]
+description = "Borrow counted types"
+documentation = "http://luthaf.github.io/bcount/bcount/index.html"
+homepage = "https://github.com/luthaf/bcount"
+repository = "https://github.com/luthaf/bcount"
+readme = "README.md"
+license = "MIT"
