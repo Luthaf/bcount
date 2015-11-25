@@ -1,0 +1,4 @@
+[package]
+name = "bcount"
+version = "0.1.0"
+authors = ["Guillaume Fraux <guillaume.fraux@ens.fr>"]
