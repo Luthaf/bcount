@@ -1,0 +1,29 @@
+language: rust
+sudo: false
+addons:
+  apt:
+    packages:
+    - libelf-dev
+    - libdw-dev
+rust:
+    - stable
+    - beta
+install:
+    - pip install --user travis-cargo codecov
+    - export PATH=$HOME/.local/bin:$PATH
+
+script:
+    - cargo build
+    - cargo test
+    - cargo test --release
+    - travis-cargo --only stable doc
+    - travis-cargo --only stable doc-upload
+    - |
+      if test "${TRAVIS_RUST_VERSION}" == "stable" ; then
+          travis-cargo coverage --no-sudo
+          codecov --file target/kcov/kcov-merged/cobertura.xml
+      fi
+
+env:
+  global:
+    secure: "x3ZHjN5QN/oewxTxL5w8815WhYvLZ3el1oXe4+ngOsDHolFlVfQttaMq2pk54AmTpt1OnLso5F4CKDzmWBmp2aOjmFHOoY24QyerN5tqFgk4/W6oRWJyBtD26CFfdSLkDzG4QtzSxyfGyweMh1RcCHwpmPQHK7aBSx+Vh15aA/P+1DvPqqTPdA2GI0MWLcNi3c/wdZhhmjownF+Qkevm9xKFQlGaZ77ckHSirHBe9sdQAI20oMCdRV6wDtmbhcv07PeG190oJ1WpRBEgUKWAdVJL7jRT0JSrL197n33p4h8UfOuMLh4k9dFWimMdW7ZZ953s+IC5kMtP0Cux1VaJMTBazFxq83MAMK1lsVn6X+p+q+lDz0ojdGHZf9z0yji5hh66EpNSvgK4w/3mRyLpn78YL9xYnhF+DoQDyDxYHfznQkJ/fnlLvn9Oczw8OV2155f1EiQqBuWXB72dyhkyG+KPBKLT2qq65JdpgWHcitgcdkcIPtGOGQ9OcMzNYWA20/fiHjALP0kMW7zh0GSXscWNAi66t86zAaSK1VTCfgWgkMdk/8h2wVzmzdaLizS1iVJTLxV7CbtRNABv7fLYyEK3M6OH8t4b9HrWLaEsJRvXqRw3dvBg9ytNM3YwPL0IlOeLbRjVIcw65PIGiyLT0xV53yCVPGNtgG2NQ/CwGM0="
