@@ -162,4 +162,17 @@ mod tests {
         *a = 18;
         assert_eq!(a.count(), 0);
     }
+
+    #[test]
+    fn non_mutable() {
+        fn observe(_: &f64) {/* Do nothing */}
+
+        let a = Bc::new(3.0);
+        assert_eq!(a.count(), 0);
+
+        observe(&a);
+        observe(&a);
+        observe(&a);
+        assert_eq!(a.count(), 0);
+    }
 }
