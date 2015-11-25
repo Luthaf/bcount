@@ -1,6 +1,6 @@
 //! This crate provide type for counting mutable borrow of a value. The `Bc<T>`
-//! type is a small wrapper on top of T which count the number of time T has
-//! been mutably borrowed since it's creation.
+//! type is a small wrapper on top of a value of type `T` which count the number
+//! of time the value has been mutably borrowed since it's creation.
 //!
 //! # Why?
 //!
