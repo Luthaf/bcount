@@ -9,6 +9,14 @@ of time the value has been mutably borrowed since it's creation.
 
 [Documentation is here!](http://luthaf.github.io/bcount/bcount/index.html)
 
+## Installation
+
+`bcount` is on crates.io, so just add the following to your `Cargo.toml`
+```
+[dependencies]
+bcount = "*"
+```
+
 ## Why?
 
 If you want to cache an expensive computation result, you need to have
