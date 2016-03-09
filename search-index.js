@@ -1,0 +1,3 @@
+var searchIndex = {};
+searchIndex['bcount'] = {"items":[[3,"Bc","bcount","The borrow counter struct for type `T`.",null,null],[11,"new","","Create a new `Bc<T>` containing the value `val`.",0,{"inputs":[{"name":"bc"},{"name":"t"}],"output":{"name":"bc"}}],[11,"reset","","Reset the borrow counter",0,{"inputs":[{"name":"bc"}],"output":null}],[11,"count","","Get the number of time this structure has been mutably borrowed.",0,{"inputs":[{"name":"bc"}],"output":{"name":"usize"}}],[11,"deref","","",0,{"inputs":[{"name":"bc"}],"output":{"name":"t"}}],[11,"deref_mut","","",0,{"inputs":[{"name":"bc"}],"output":{"name":"t"}}]],"paths":[[3,"Bc"]]};
+initSearch(searchIndex);
