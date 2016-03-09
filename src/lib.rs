@@ -81,7 +81,7 @@
 //! multiple borrow are only counted once. In this code, a call to
 //! `borrow_me_twice` will only augment the borrow count by one.
 //!
-//! ```rust
+//! ```text
 //! fn borrow_me(reference: &mut T) {
 //!     // Do work
 //! }
