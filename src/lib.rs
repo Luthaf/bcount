@@ -74,6 +74,27 @@
 //! }
 //!
 //! ```
+//!
+//! # Caveats:
+//!
+//! This only count direct mutable borrow, nothing else. This means that
+//! multiple borrow are only counted once. In this code, a call to
+//! `borrow_me_twice` will only augment the borrow count by one.
+//!
+//! ```rust
+//! fn borrow_me(reference: &mut T) {
+//!     // Do work
+//! }
+//!
+//! fn borrow_me_twice(reference: &mut T) {
+//!     // Do work
+//!     borrow_me(reference)
+//! }
+//! ```
+//!
+//! Also, `Cell` and `RefCell` allow programmers to separate mutability from
+//! mutable references, so with `Bc<Cell<T>>` the borrow count will never
+//! change, even if the internal `T` is modified.
 
 // TODO? Mbc (Mutable Borrow counter) & Cbc (*const* borrow counter) & Bc (*all* borrow counter)
 
